@@ -15,15 +15,20 @@ D_KILL = docker kill
 # Dockerfile Locations
 GIT_DOCKERFILE = ./git.Dockerfile
 LOCAL_DOCKERFILE = ./local.Dockerfile
-BASE_DOCKERFILE = ./base.Dockerfile
+BASE_DOCKERFILE = ./base.Dockerfile\
 
-refresh: kill local
+refresh: check-is-submodule kill local
 
-local: build-local run-local
+local: check-is-submodule build-local run-local
 
-git: build-git run-git
+git: check-is-submodule build-git run-git
 
-base: build-base
+base: check-is-submodule build-base
+
+
+# This makefile must be run from a Git submodule
+check-is-submodule: | ../.git
+	@ECHO "Running in a github submodule"
 
 ## BASE IMAGE #################################################################
 # Buld the basic ROS image with GCC 8 and some other helpers.
