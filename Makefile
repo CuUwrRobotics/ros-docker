@@ -15,7 +15,7 @@ D_KILL = docker kill
 # Dockerfile Locations
 GIT_DOCKERFILE = ./git.Dockerfile
 LOCAL_DOCKERFILE = ./local.Dockerfile
-BASE_DOCKERFILE = ./base.Dockerfile\
+BASE_DOCKERFILE = ./base.Dockerfile
 
 refresh: check-is-submodule kill local
 
@@ -44,7 +44,7 @@ build-local: base
 	$(D_BUILD) \
 	-t $(LOCAL_IMAGE_TAG) \
 	-f $(LOCAL_DOCKERFILE) \
-	.
+	../
 
 run-local: build-local
 	@echo ctrl-P then ctrl-Q to detach.

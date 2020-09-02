@@ -8,15 +8,12 @@ FROM pirhanabot:base-ros
 ENV HOME=/root
 RUN mkdir ${HOME}/catkin_ws
 RUN mkdir ${HOME}/catkin_ws/src
+RUN mkdir ${HOME}/catkin_ws/src/temp
 # Copy the packages
-COPY board_interface/ ${HOME}/catkin_ws/src/board_interface/
-COPY watchdog/ ${HOME}/catkin_ws/src/watchdog/
-
-# Copy a catkin helper because catkin is bad
-COPY catkin/Makefile ${HOME}/catkin_ws/
+COPY . ${HOME}/catkin_ws/src/temp/
 
 ## Copy Scripts ###############################################################
-COPY Docker/scripts-local/* /scripts/
+COPY ./ros-docker/scripts-local/* /scripts/
 
 ## Startup ####################################################################
 # At run, this will execute any command set up previously by echoing into it.
