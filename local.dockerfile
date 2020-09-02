@@ -13,7 +13,7 @@ RUN mkdir ${HOME}/catkin_ws/temp
 ENV temporary_package_directory ${HOME}/catkin_ws/temp
 ENV final_package_directory ${HOME}/catkin_ws/src
 # Copy the packages
-COPY . ${temporary_package_direcotry}
+COPY . ${temporary_package_directory}
 
 ## Copy Scripts ###############################################################
 COPY ./ros-docker/scripts-local/* /scripts/
