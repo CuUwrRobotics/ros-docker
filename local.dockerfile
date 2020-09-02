@@ -10,8 +10,8 @@ RUN mkdir ${HOME}/catkin_ws
 RUN mkdir ${HOME}/catkin_ws/src
 RUN mkdir ${HOME}/catkin_ws/temp
 # These are for use when copying the correct temp files into the src folder.
-ENV temporary_package_directory ${HOME}/catkin_ws/temp/
-ENV final_package_directory ${HOME}/catkin_ws/src/
+ENV temporary_package_directory ${HOME}/catkin_ws/temp
+ENV final_package_directory ${HOME}/catkin_ws/src
 # Copy the packages
 COPY . ${temporary_package_direcotry}
 
