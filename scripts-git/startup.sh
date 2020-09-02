@@ -17,4 +17,3 @@ echo Container ID: $(cat /etc/hostname)
 
 # Keep container running
 tail -f /dev/null
- 
