@@ -19,3 +19,4 @@ echo Cleaning workspace...
 catkin_make clean >> /dev/null
 
 echo Finished catkin workspace setup
+ 

@@ -7,3 +7,4 @@ echo "source /opt/ros/melodic/setup.sh" >> /root/.bashrc
 echo "source $HOME/catkin_ws/devel/setup.sh" >> /root/.bashrc
 
 echo Finished bashrc appends
+ 
