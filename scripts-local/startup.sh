@@ -11,6 +11,9 @@ service ssh restart
 # Append anything needed to bashrc, including ros sources
 /scripts/append_bashrc.sh
 
+# Move the sources in place
+$temporary_package_directory/file-setup.sh
+
 # Print the hostname
 echo '[42mContainer started successfully.[0m'
 echo Container ID: $(cat /etc/hostname)
