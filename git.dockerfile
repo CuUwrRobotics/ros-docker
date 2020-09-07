@@ -1,7 +1,7 @@
 # This will create a dockerfile and then clone the repository put in the 
 # environment variables.
 # Requires that base.dockerfile is also built (use make base)
-FROM pirhanabot:base-ros
+FROM piranhabot:base-ros
 
 ## Git Clone For Worksapce Setup ##############################################
 ENV WORKSPACE_GIT="https://github.com/CuUwrRobotics/PiranhaBot.git"
