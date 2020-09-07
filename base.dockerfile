@@ -22,7 +22,8 @@ RUN apt-get -y install iputils-ping
 RUN apt-get -y install openssh-server
 # X11 server
 RUN apt-get -y install x11-apps
+# Image Viewer
+RUN apt-get -y install eog
 # Higher version of C++
 RUN apt-get -y install gcc-8
 RUN apt-get -y install g++-8
-
