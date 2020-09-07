@@ -1,7 +1,7 @@
 # This will create a dockerfile and then copy the source files from the context
 # directory.
 # Requires that base.dockerfile is also built (use make base)
-FROM pirhanabot:base-ros
+FROM piranhabot:base-ros
 
 
 ## Copy From Host For Worksapce Setup #########################################
