@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # These are run first to avoid having to re-run them on file edits/rebuilds
 # Update apt
 RUN apt-get update
+RUN apt-get -y install tree
 # Text editor
 RUN apt-get -y install nano
 # Networking tools
