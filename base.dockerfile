@@ -23,6 +23,8 @@ RUN apt-get -y install iputils-ping
 RUN apt-get -y install openssh-server
 # X11 server
 RUN apt-get -y install x11-apps
+# Displays the system as the container sees it. Also fun.
+RUN apt-get -y install neofetch
 # Image Viewer
 RUN apt-get -y install eog
 # Higher version of C++
