@@ -31,3 +31,5 @@ RUN apt-get -y install eog
 # Higher version of C++
 RUN apt-get -y install gcc-8
 RUN apt-get -y install g++-8
+# More readable directory color
+RUN echo "DIR 01;36" > ~/.dircolors
