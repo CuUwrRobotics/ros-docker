@@ -1,3 +1,8 @@
+# @Author: Nick Steele <nichlock>
+# @Date:   21:59 Sep 01 2020
+# @Last modified by:   nichlock
+# @Last modified time: 19:10 Sep 19 2020
+
 # Allow SSH logins for root TODO: don't use root
 echo PermitRootLogin yes >> /etc/ssh/sshd_config
 # Assign a password to root

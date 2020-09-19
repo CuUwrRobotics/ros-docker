@@ -1,3 +1,8 @@
+# @Author: Nick Steele <nichlock>
+# @Date:   20:00 Sep 18 2020
+# @Last modified by:   nichlock
+# @Last modified time: 19:09 Sep 19 2020
+
 # Makefile for docker container with SSH server/X11 client
 
 LOCAL_IMAGE_TAG = piranhabot:local

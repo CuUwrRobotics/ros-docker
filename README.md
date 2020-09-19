@@ -1,3 +1,10 @@
+<!--
+@Author: Nick Steele <nichlock>
+@Date:   17:59 Sep 17 2020
+@Last modified by:   nichlock
+@Last modified time: 19:08 Sep 19 2020
+-->
+
 # ros-docker
 The docker images we use for testing our system
 

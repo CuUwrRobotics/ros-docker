@@ -1,6 +1,6 @@
-# This will create a dockerfile and then copy the source files from the context
-# directory.
-# Requires that base.dockerfile is also built (use make base)
+# @Author: Nick Steele <nichlock>
+# @Date:   20:00 Sep 18 2020
+
 FROM piranhabot:base-ros
 
 

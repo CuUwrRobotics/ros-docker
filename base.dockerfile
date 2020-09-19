@@ -1,3 +1,6 @@
+# @Author: Nick Steele <nichlock>
+# @Date:   20:00 Sep 18 2020
+
 # This Dockerfile will create a basic ROS image which runs a SSH server and uses X11
 
 ## ROS Setup ##################################################################
