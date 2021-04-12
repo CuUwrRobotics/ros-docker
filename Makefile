@@ -17,8 +17,8 @@ D_RM_IMAGE = docker image rm
 D_KILL = docker kill
 
 # Dockerfile Locations
-LOCAL_DOCKERFILE = ./local.Dockerfile
-BASE_DOCKERFILE = ./base.Dockerfile
+LOCAL_DOCKERFILE = ./local.dockerfile
+BASE_DOCKERFILE = ./base.dockerfile
 
 refresh: check-is-submodule kill local
 
