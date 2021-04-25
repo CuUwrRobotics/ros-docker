@@ -1,60 +1,50 @@
 # @Author: Nick Steele <nichlock>
 # @Date:   20:00 Sep 18 2020
-# @Last modified by:   nichlock
-# @Last modified time: 19:09 Sep 19 2020
+# @Last modified by:   Nick Steele
+# @Last modified time: 22:03 Apr 24 2021
+
+# THIS MAKEFILE MUST BE RUN WITH THE CODE IN THE PARENT DIRECTORY
+# THIS MAKEFILE MUST BE RUN WITH THE CODE IN THE PARENT DIRECTORY
 
 # Makefile for docker container with SSH server/X11 client
 
-LOCAL_IMAGE_TAG = piranhabot:local
-BASE_IMAGE_TAG = piranhabot:base-ros
+IMAGE_TAG = piranhabot:ros
 
 CONTAINER_NAME = piranhabot_container
 
-# Docker commands
+# Dockerfile Location relative to Makefile
+DOCKERFILE = ./Dockerfile
+
 D_RUN = docker run
 D_BUILD = docker build
 D_RM_IMAGE = docker image rm
 D_KILL = docker kill
 
-# Dockerfile Locations
-LOCAL_DOCKERFILE = ./local.dockerfile
-BASE_DOCKERFILE = ./base.dockerfile
 
-refresh: check-is-submodule kill local
-
-local: check-is-submodule build-local run-local
-
-base: check-is-submodule build-base
+refresh: check-is-submodule kill build-image run-container
 
 
-# This makefile must be run from a Git submodule
+# This makefile must be run with the code in the parent directory
 check-is-submodule: | ../.git
 	@ECHO "Running in a github submodule"
 
-## BASE IMAGE #################################################################
-# Buld the basic ROS image with GCC 8 and some other helpers.
-build-base:
-	$(D_BUILD) \
-	-t $(BASE_IMAGE_TAG) \
-	-f $(BASE_DOCKERFILE) \
-	.
-
 ## LOCAL BUILDS ###############################################################
-# These build off the source files found in ../
-build-local: base
+# These build off the local source files found in ../
+build-image:
 	$(D_BUILD) \
-	-t $(LOCAL_IMAGE_TAG) \
-	-f $(LOCAL_DOCKERFILE) \
+	-t $(IMAGE_TAG) \
+	-f $(DOCKERFILE) \
 	../
 
-run-local: build-local
+run-container: build-image
 	@echo ctrl-P then ctrl-Q to detach.
 	$(D_RUN) \
 	-p 22:22 \
+	-p 3000:3000 \
 	--rm \
 	--env DISPLAY=host.docker.internal:0 \
 	--name $(CONTAINER_NAME) \
-	-it $(LOCAL_IMAGE_TAG)
+	-it $(IMAGE_TAG)
 
 ## KILL DETATCHED CONTAINER ###################################################
 kill:
