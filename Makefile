@@ -1,12 +1,12 @@
 # @Author: Nick Steele <nichlock>
 # @Date:   20:00 Sep 18 2020
 # @Last modified by:   Nick Steele
-# @Last modified time: 22:03 Apr 24 2021
+# @Last modified time: 19:22 May 12 2021
 
 # THIS MAKEFILE MUST BE RUN WITH THE CODE IN THE PARENT DIRECTORY
 # THIS MAKEFILE MUST BE RUN WITH THE CODE IN THE PARENT DIRECTORY
 
-# Makefile for docker container with SSH server/X11 client
+# Makefile for our typical docker container
 
 IMAGE_TAG = piranhabot:ros
 
@@ -37,10 +37,11 @@ build-image:
 	../
 
 run-container: build-image
-	@echo ctrl-P then ctrl-Q to detach.
+	@echo "ctrl-P then ctrl-Q to detach."
 	$(D_RUN) \
 	-p 22:22 \
 	-p 3000:3000 \
+	-v ${CURDIR}/..:/catkin_ws \
 	--rm \
 	--env DISPLAY=host.docker.internal:0 \
 	--name $(CONTAINER_NAME) \
