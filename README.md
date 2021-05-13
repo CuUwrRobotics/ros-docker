@@ -13,12 +13,12 @@ The docker image we use for testing our code when not working on the Raspberry P
 To add this to a repository:
 - Run `git submodule add https://github.com/CuUwrRobotics/ros-docker.git` in your repository
 - Add the following lines to the `.gitignore` file in your repository:
-```git-config
-# Ignore catkin build outputs
-.catkin_workspace
-devel/*
-build/*
-```
+  ```git-config
+  # Ignore catkin build outputs
+  .catkin_workspace
+  devel/*
+  build/*
+  ```
 - Create a `file-setup.sh` file in your root directory. (Make sure it has only newlines, no carriage returns.) This should handle any file setups that your code needs, for example copying images to an `/images` directory. You can create the file and leave it blank, but it needs to exist. Note that all your copied files can be found in the environment variable `$CATKIN_WS`. `file-setup.sh` Will be run while creating the container.
 
 To use this in a repository:
